@@ -3,18 +3,18 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "data_bucket" {
-  bucket = "event-driven-data-bucket-saiganesh"
+  bucket        = "event-driven-data-bucket-saiganesh"
   force_destroy = true
 }
 
-resource "aws_kinesis_stream" "data_stream" {
-  name             = "event-driven-data-stream"
-  shard_count      = 1
-  retention_period = 24
-}
+#resource "aws_kinesis_stream" "data_stream" {
+  #name             = "event-driven-data-stream"
+  #shard_count      = 1
+  #retention_period = 24
+#}
 
 resource "aws_iam_role" "lambda_exec_role" {
-  name = "lambda_exec_role"
+  name = "lambda_exec_role_unique123"   # Changed here to a unique name
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
